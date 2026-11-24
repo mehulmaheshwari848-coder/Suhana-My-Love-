@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Janu ❤️</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background: #fff0f5;
+  color: #713c53;
+  overflow: hidden;
+}
+
+#pages {
+  display: flex;
+  width: 100%;
+  height: 100dvh;
+  transition: transform .65s ease;
+}
+
+.page {
+  min-width: 100%;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 28px;
+  position: relative;
+  background: linear-gradient(145deg,#fff0f5,#ffe0eb);
+}
+
+h1 {
+  font-size: 30px;
+  line-height: 1.5;
+}
+
+p {
+  font-size: 20px;
+  line-height: 1.8;
+  max-width: 420px;
+}
+
+button {
+  border: none;
+  padding: 14px 27px;
+  border-radius: 30px;
+  background: #e879a5;
+  color: white;
+  font-size: 17px;
+  margin-top: 22px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px #e879a555;
+}
+
+.heart {
+  font-size: 55px;
+  animation: beat 1s infinite;
+}
+
+@keyframes beat {
+  50% { transform: scale(1.2); }
+}
+
+.small {
+  font-size: 15px;
+  color: #ae718d;
+}
+
+.choice {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#no {
+  background: #aaa;
+}
+
+.couple {
+  font-size: 75px;
+  margin: 15px;
+}
+
+.names {
+  font-size: 21px;
+  font-weight: bold;
+}
+
+.proposal {
+  font-size: 23px;
+  line-height: 1.7;
+}
+
+#answer {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="pages">
+
+<!-- PAGE 1 -->
+<section class="page">
+  <div class="heart">💗</div>
+  <h1>Meri Janu ❤️</h1>
+  <p>Ye site aapke liye</p>
+  <p class="small">Deewana ki taraf se 🎀</p>
+  <button onclick="next()">Continue →</button>
+</section>
+
+<!-- PAGE 2 -->
+<section class="page">
+  <div class="heart">🥺</div>
+  <h1>So Meri Nepali Baddie...</h1>
+  <p>Tu janti Nahi me tujse kitna pyar karta hu ❤️</p>
+  <button onclick="next()">Next →</button>
+</section>
+
+<!-- PAGE 3 -->
+<section class="page">
+  <h1>Ek baat yaad hai?</h1>
+  <p>Yaad haina mene tumhe happy birthday wish kiya even to me tuje janta bhi nhi tha, but meri life ka best decision tha vo, kyuki me tujse mila. ❤️</p>
+  <button onclick="next()">Next →</button>
+</section>
+
+<!-- PAGE 4 -->
+<section class="page">
+  <h1>But phir bhi...</h1>
+  <p>Ha mene wish kiya but hum dono fir bhi anjan the ek dusre the, but fir tune ek din suddenly msg kiy aur vo tera best decision tha. 💗</p>
+  <button onclick="next()">Next →</button>
+</section>
+
+<!-- PAGE 5 -->
+<section class="page">
+  <h1>And then...</h1>
+  <p>Fir Ratko roblox khelna lage sathme dhire dhire din me bhi aur aise karte karte kab itna close hogya tujse realize hi nhi huaa. 🥹</p>
+  <button onclick="next()">Next →</button>
+</section>
+
+<!-- PAGE 6 -->
+<section class="page">
+  <div class="heart">💕</div>
+  <h1>Shirf close nhi...</h1>
+  <p>adat bangyi tu meri shayd attach ho gya hu tujse, but tera mere sath hona meri life ka sabse haseen part hai.</p>
+  <button onclick="next()">Next →</button>
+</section>
+
+<!-- PAGE 7 -->
+<section class="page">
+  <h1>Ab karte hai main baat ❤️</h1>
+  <div style="display:flex;justify-content:center;gap:25px">
+    <div>
+      <div class="couple">👩🏻</div>
+      <div class="names">Suhana</div>
+    </div>
+    <div>
+      <div class="couple">👨🏻</div>
+      <div class="names">Mehul</div>
+    </div>
+  </div>
+  <p class="small">A little story, a big question... 💗</p>
+  <button onclick="next()">Continue ❤️</button>
+</section>
+
+<!-- PAGE 8 -->
+<section class="page">
+  <div style="font-size:75px">💐</div>
+  <h1>Hey Suhana...</h1>
+  <p class="proposal">
+    Suhana, mujhse Mohabbat karogi?
+    <br><br>
+    Kya tum Mehul ki Suhana banogi? ❤️
+  </p>
+  <div class="choice">
+    <button id="no" onclick="noClick()">Nahi 🙈</button>
+    <button onclick="yesClick()">Haan ❤️</button>
+  </div>
+  <div id="answer"></div>
+</section>
+
+<!-- PAGE 9 -->
+<section class="page">
+  <div class="heart">❤️</div>
+  <h1>Thank You Meri Janu!</h1>
+  <p>Tumne mere dil ko duniya ki sabse khoobsurat khushi de di. 🥹</p>
+  <p>Forever special, Suhana. 💗</p>
+</section>
+
+</div>
+
+<script>
+let current = 0;
+const pages = document.getElementById("pages");
+const total = 9;
+
+function next() {
+  if (current < total - 1) {
+    current++;
+    pages.style.transform =
+      `translateX(-${current * 100}%)`;
+  }
+}
+
+function noClick() {
+  const btn = document.getElementById("no");
+  btn.style.display = "none";
+}
+
+function yesClick() {
+  current = 8;
+  pages.style.transform =
+    `translateX(-${current * 100}%)`;
+}
+
+// Swipe left to move forward
+let startX = 0;
+
+document.addEventListener("touchstart", e => {
+  startX = e.touches[0].clientX;
+});
+
+document.addEventListener("touchend", e => {
+  let endX = e.changedTouches[0].clientX;
+  if (startX - endX > 70 && current < total - 1) {
+    next();
+  }
+});
+</script>
+
+</body>
+    </html>
